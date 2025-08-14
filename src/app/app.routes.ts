@@ -9,95 +9,106 @@ import { AddOrderComponent } from './pages/orders/add-order/add-order.component'
 import { TableOrderDetailsComponent } from './pages/order-details/table-order-details/table-order-details.component';
 import { AddOrderDetailComponent } from './pages/order-details/add-order-detail/add-order-detail.component';
 import { TableOrdersComponent } from './pages/orders/table-orders/table-orders.component';
-import { AddOrderComponent } from './pages/orders/add-order/add-order.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'products/table', pathMatch: 'full' },
   {
     path: 'products',
     children: [
       {
         path: 'add',
-        component: AddProductsComponent
+        component: AddProductsComponent,
+        data: { title: 'Agregar producto' }
       },
       {
         path: 'edit/:id',
-        component: AddProductsComponent
+        component: AddProductsComponent,
+        data: { title: 'Editar producto' }
       },
       {
         path: 'table',
-        component: TableProductsComponent
+        component: TableProductsComponent,
+        data: { title: 'Productos' }
       }
     ]
-  }
-  ,
+  },
   {
     path: 'categories',
     children: [
       {
         path: 'add',
-        component: AddCategoryComponent
+        component: AddCategoryComponent,
+        data: { title: 'Agregar categoría' }
       },
       {
         path: 'edit/:id',
-        component: AddCategoryComponent
+        component: AddCategoryComponent,
+        data: { title: 'Editar categoría' }
       },
       {
         path: 'table',
-        component: TableCategoriesComponent
+        component: TableCategoriesComponent,
+        data: { title: 'Categorías' }
       }
     ]
-  }
-  ,
+  },
   {
     path: 'users',
     children: [
       {
         path: 'add',
-        component: AddUserComponent
+        component: AddUserComponent,
+        data: { title: 'Agregar usuario' }
       },
       {
         path: 'edit/:id',
-        component: AddUserComponent
+        component: AddUserComponent,
+        data: { title: 'Editar usuario' }
       },
       {
         path: 'table',
-        component: TableUsersComponent
+        component: TableUsersComponent,
+        data: { title: 'Usuarios' }
       }
     ]
-  }
-  ,
+  },
   {
     path: 'orders',
     children: [
       {
         path: 'add',
-        component: AddOrderComponent
+        component: AddOrderComponent,
+        data: { title: 'Agregar orden' }
       },
       {
         path: 'edit/:id',
-        component: AddOrderComponent
+        component: AddOrderComponent,
+        data: { title: 'Editar orden' }
       },
       {
         path: 'table',
-        component: TableOrdersComponent
+        component: TableOrdersComponent,
+        data: { title: 'Órdenes' }
       }
     ]
-  }
-  ,
+  },
   {
     path: 'order-details',
     children: [
       {
         path: 'add',
-        component: AddOrderDetailComponent
+        component: AddOrderDetailComponent,
+        data: { title: 'Agregar detalle de orden' }
       },
       {
         path: 'edit/:id',
-        component: AddOrderDetailComponent
+        component: AddOrderDetailComponent,
+        data: { title: 'Editar detalle de orden' }
       },
       {
         path: 'table',
-        component: TableOrderDetailsComponent
+        component: TableOrderDetailsComponent,
+        data: { title: 'Detalles de orden' }
       }
     ]
   }
