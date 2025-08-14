@@ -8,6 +8,8 @@ import { AddUserComponent } from './pages/users/add-user/add-user.component';
 import { AddOrderComponent } from './pages/orders/add-order/add-order.component';
 import { TableOrderDetailsComponent } from './pages/order-details/table-order-details/table-order-details.component';
 import { AddOrderDetailComponent } from './pages/order-details/add-order-detail/add-order-detail.component';
+import { TableOrdersComponent } from './pages/orders/table-orders/table-orders.component';
+import { AddOrderComponent } from './pages/orders/add-order/add-order.component';
 
 export const routes: Routes = [
   {
