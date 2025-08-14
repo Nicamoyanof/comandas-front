@@ -5,6 +5,8 @@ import { TableCategoriesComponent } from './pages/categories/table-categories/ta
 import { AddCategoryComponent } from './pages/categories/add-category/add-category.component';
 import { TableUsersComponent } from './pages/users/table-users/table-users.component';
 import { AddUserComponent } from './pages/users/add-user/add-user.component';
+import { TableOrdersComponent } from './pages/orders/table-orders/table-orders.component';
+import { AddOrderComponent } from './pages/orders/add-order/add-order.component';
 
 export const routes: Routes = [
   {
@@ -57,6 +59,24 @@ export const routes: Routes = [
       {
         path: 'table',
         component: TableUsersComponent
+      }
+    ]
+  }
+  ,
+  {
+    path: 'orders',
+    children: [
+      {
+        path: 'add',
+        component: AddOrderComponent
+      },
+      {
+        path: 'edit/:id',
+        component: AddOrderComponent
+      },
+      {
+        path: 'table',
+        component: TableOrdersComponent
       }
     ]
   }
