@@ -8,6 +8,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -57,6 +58,7 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    MatFormFieldModule,
     MatMenuModule,
     MatSlideToggleModule,
     MatDatepickerModule,
