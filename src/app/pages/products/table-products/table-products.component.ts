@@ -32,4 +32,12 @@ export class TableProductsComponent {
       }
     });
   }
+
+  delete(id: number): void {
+    if (confirm('¿Eliminar producto?')) {
+      this.productService.delete(id).subscribe(() => {
+        this.products = this.products.filter(p => p.product_id !== id);
+      });
+    }
+  }
 }
