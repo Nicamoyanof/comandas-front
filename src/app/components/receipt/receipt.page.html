@@ -1,0 +1,9 @@
+<div class="ticket" *ngIf="ticket">
+  <h1>Restaurant</h1>
+  <div>Ticket #{{ ticket.ticket_id }}</div>
+  <div>{{ ticket.issued_at | date:'short' }}</div>
+  <div *ngFor="let d of details">{{ d.quantity }} × {{ d.product?.name }} - {{ (d.quantity * (d.product?.price || 0)) | currency:'ARS':'symbol':'1.2-2':'es-AR' }}</div>
+  <hr />
+  <div class="total">Total: {{ ticket.total | currency:'ARS':'symbol':'1.2-2':'es-AR' }}</div>
+  <div>Payment: {{ ticket.payment_method }}</div>
+</div>

@@ -1,0 +1,13 @@
+.ticket {
+  width: 300px;
+  font-family: monospace;
+}
+.total {
+  font-weight: bold;
+  margin-top: 8px;
+}
+@media print {
+  body {
+    margin: 0;
+  }
+}

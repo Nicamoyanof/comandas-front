@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">Kitchen</mat-toolbar>
+<div class="board">
+  <div class="column">
+    <h3>Pending</h3>
+    <app-order-card *ngFor="let o of pending" [order]="o" (start)="move(o, 'in_progress')"></app-order-card>
+  </div>
+  <div class="column">
+    <h3>In Progress</h3>
+    <app-order-card *ngFor="let o of inProgress" [order]="o" (ready)="move(o, 'ready')" (undo)="move(o, 'pending')"></app-order-card>
+  </div>
+  <div class="column">
+    <h3>Ready</h3>
+    <app-order-card *ngFor="let o of ready" [order]="o" (undo)="move(o, 'in_progress')"></app-order-card>
+  </div>
+</div>

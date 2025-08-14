@@ -1,0 +1,11 @@
+<mat-card class="table-card" [style.borderTopColor]="statusColor(table.status)" tabindex="0" role="button" aria-label="Mesa {{table.table_number}}">
+  <div class="number">{{ table.table_number }}</div>
+  <div class="chips">
+    <mat-chip *ngIf="table.section" color="primary" selected>{{ table.section }}</mat-chip>
+    <mat-chip [ngStyle]="{ 'background-color': statusColor(table.status), color: '#fff' }">{{ table.status }}</mat-chip>
+  </div>
+  <div class="summary" *ngIf="summary">
+    <span>{{ summary.items }} ítems</span>
+    <span>{{ summary.amount | currency:'ARS':'symbol':'1.2-2':'es-AR' }}</span>
+  </div>
+</mat-card>

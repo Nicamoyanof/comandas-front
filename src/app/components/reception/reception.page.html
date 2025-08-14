@@ -1,0 +1,40 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav class="details" position="end" [opened]="!!selectedTable" (closedStart)="closeDetails()">
+    <h2 *ngIf="selectedTable">Mesa {{ selectedTable.table_number }}</h2>
+    <mat-progress-bar *ngIf="loadingSummary" mode="indeterminate"></mat-progress-bar>
+    <ng-container *ngIf="summary">
+      <div *ngFor="let item of groupedItems">{{ item.qty }} × {{ item.name }} - {{ item.subtotal | currency:'ARS':'symbol':'1.2-2':'es-AR' }}</div>
+      <div class="totals">Total: {{ summary.totals?.amount | currency:'ARS':'symbol':'1.2-2':'es-AR' }}</div>
+      <button mat-raised-button color="primary" (click)="issueTicket('cash')">Issue Ticket</button>
+    </ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">Reception</mat-toolbar>
+
+    <div class="filters">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label>
+        <input matInput [formControl]="search" placeholder="Número de mesa" />
+      </mat-form-field>
+      <div class="status-chips">
+        <mat-chip *ngFor="let st of ['free','occupied','reserved','waiting_payment']"
+                  (click)="toggleStatus(st)"
+                  [selected]="statusFilter().includes(st)">
+          {{ st }}
+        </mat-chip>
+      </div>
+    </div>
+
+    <div class="grid">
+      <app-table-card *ngFor="let t of filteredTables" [table]="t" (click)="openTable(t)" (keyup.enter)="openTable(t)"></app-table-card>
+    </div>
+
+    <div class="legend">
+      <mat-chip style="background:#10B981;color:#fff;">free</mat-chip>
+      <mat-chip style="background:#F59E0B;color:#fff;">occupied</mat-chip>
+      <mat-chip style="background:#3B82F6;color:#fff;">reserved</mat-chip>
+      <mat-chip style="background:#8B5CF6;color:#fff;">waiting_payment</mat-chip>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
