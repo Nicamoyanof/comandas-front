@@ -1,1 +1,10 @@
-<p>add-category works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()" class="category-form">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    {{ isEdit ? 'Actualizar' : 'Crear' }}
+  </button>
+</form>
