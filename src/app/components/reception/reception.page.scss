@@ -1,0 +1,29 @@
+.container {
+  height: 100vh;
+}
+.filters {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  flex-wrap: wrap;
+}
+.grid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+.legend {
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+}
+.details {
+  width: 420px;
+  padding: 16px;
+}
+@media (max-width: 600px) {
+  .details {
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+.board {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+.column {
+  flex: 1;
+}
+.column h3 {
+  text-align: center;
+}

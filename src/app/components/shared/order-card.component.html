@@ -1,0 +1,14 @@
+<mat-card class="order-card" tabindex="0" aria-label="Orden {{order.order_id}}">
+  <div class="header">
+    <div class="table">Mesa {{ order.table_id }}</div>
+    <div class="time" [title]="order.created_at">{{ order.created_at | relativeTime }}</div>
+  </div>
+  <ul class="items">
+    <li *ngFor="let d of details">{{ d.quantity }} × {{ d.product?.name }}</li>
+  </ul>
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="start.emit()" *ngIf="order.status === 'pending'">Start</button>
+    <button mat-raised-button color="accent" (click)="ready.emit()" *ngIf="order.status === 'in_progress'">Ready</button>
+    <button mat-button (click)="undo.emit()" *ngIf="order.status !== 'pending'">Undo</button>
+  </div>
+</mat-card>
