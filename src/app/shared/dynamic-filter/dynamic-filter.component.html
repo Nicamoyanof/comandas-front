@@ -1,0 +1,13 @@
+<div class="filter-container">
+  @for (col of columns; track $index) {
+    <div class="filter-field">
+      <label>{{ col | titlecase }}</label>
+      <input
+        type="text"
+        [(ngModel)]="filters[col]"
+        (input)="applyFilter()"
+        placeholder="🔍 Filtrar por {{ col }}"
+      />
+    </div>
+  }
+</div>
