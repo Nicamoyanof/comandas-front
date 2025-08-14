@@ -1,0 +1,30 @@
+<div class="form-container">
+  <h2>{{ isEdit ? 'Editar Impresora' : 'Crear Impresora' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="form.get('name')?.invalid">Requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Ubicación</mat-label>
+      <mat-select formControlName="location">
+        <mat-option *ngFor="let loc of locations" [value]="loc.value">{{ loc.viewValue }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('location')?.invalid">Requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>IP</mat-label>
+      <input matInput formControlName="ip_address">
+      <mat-error *ngIf="form.get('ip_address')?.invalid">Requerido</mat-error>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
+      <button mat-raised-button color="warn" routerLink="/printers/table" type="button">Cancelar</button>
+    </div>
+  </form>
+</div>
